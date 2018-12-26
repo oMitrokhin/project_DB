@@ -1,0 +1,8 @@
+SET SERVEROUTPUT ON
+declare
+begin
+    for rec in (select * from table(P_Av_PR.get_available_product()))
+    loop
+        DBMS_OUTPUT.put_line(rec.product_name || ' ' || rec.product_average_price);
+    end loop;
+end;
